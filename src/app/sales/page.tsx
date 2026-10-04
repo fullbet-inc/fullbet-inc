@@ -5,7 +5,6 @@ import {
   BRAND_NAME,
   BRAND_NAME_JA,
   CONTACT_EMAIL,
-  CONTACT_MAILTO,
 } from "./_components/SalesLogo";
 
 // ※ 掲載している社名・事例・FAQ回答は仮のダミーです。
@@ -187,7 +186,7 @@ function Hero() {
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
-              href={CONTACT_MAILTO}
+              href="#contact"
               className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-[#2f6bff] px-8 text-[15px] font-bold text-white shadow-lg shadow-[#2f6bff]/25 transition-colors hover:bg-[#1f55e0]"
             >
               メールで問い合わせる
@@ -425,13 +424,6 @@ function ContactCta() {
             <p className="mt-2 break-all font-mono text-[18px] font-bold tracking-wide md:text-[22px]">
               {CONTACT_EMAIL}
             </p>
-            <a
-              href={CONTACT_MAILTO}
-              className="mt-6 flex h-12 items-center justify-center gap-2 rounded-full bg-white text-[14px] font-bold text-[#2f6bff] transition-opacity hover:opacity-90"
-            >
-              メールで問い合わせる
-              <span aria-hidden>→</span>
-            </a>
           </div>
         </div>
       </Reveal>

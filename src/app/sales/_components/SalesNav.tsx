@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import SalesLogo, { CONTACT_MAILTO } from "./SalesLogo";
+import SalesLogo from "./SalesLogo";
 
 const LINKS = [
   { href: "#about", label: "私たちについて" },
@@ -9,7 +9,6 @@ const LINKS = [
   { href: "#services", label: "サービス" },
   { href: "#cases", label: "支援事例" },
   { href: "#faq", label: "よくある質問" },
-  { href: "#contact", label: "お問い合わせ" },
 ];
 
 export default function SalesNav() {
@@ -50,7 +49,7 @@ export default function SalesNav() {
         </ul>
 
         <a
-          href={CONTACT_MAILTO}
+          href="#contact"
           className="hidden h-10 items-center rounded-full bg-[#2f6bff] px-5 text-[13px] font-bold text-white transition-colors hover:bg-[#1f55e0] lg:inline-flex"
         >
           メールで問い合わせる
@@ -94,7 +93,7 @@ export default function SalesNav() {
             ))}
           </ul>
           <a
-            href={CONTACT_MAILTO}
+            href="#contact"
             onClick={() => setOpen(false)}
             className="mt-4 flex h-12 items-center justify-center rounded-full bg-[#2f6bff] text-[14px] font-bold text-white"
           >
