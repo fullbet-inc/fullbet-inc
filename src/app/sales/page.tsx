@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import SalesNav from "./_components/SalesNav";
-import SalesLogo, { BRAND_NAME, BRAND_NAME_JA } from "./_components/SalesLogo";
+import {
+  BRAND_NAME,
+  BRAND_NAME_JA,
+  CONTACT_EMAIL,
+  CONTACT_MAILTO,
+} from "./_components/SalesLogo";
 
-// ※ 掲載している社名・数値・事例・連絡先はすべて仮のダミーです。
-const PHONE = "03-0000-0000";
+// ※ 掲載している社名・事例・FAQ回答は仮のダミーです。
 
 export const metadata: Metadata = {
   title: `${BRAND_NAME} | BtoB特化の営業支援・営業代行`,
@@ -19,17 +22,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-const CLIENTS = [
-  "SAMPLE Corp.",
-  "Dummy Holdings",
-  "Placeholder Inc.",
-  "Example Tech",
-  "Mock Systems",
-  "Logo Partners",
-  "Acme Japan",
-  "Brand Name Co.",
-];
 
 const STRENGTHS = [
   {
@@ -128,7 +120,6 @@ export default function SalesPage() {
       <SalesNav />
       <main className="flex-1">
         <Hero />
-        <Clients />
         <About />
         <Strengths />
         <Services />
@@ -136,7 +127,6 @@ export default function SalesPage() {
         <Faq />
         <ContactCta />
       </main>
-      <Footer />
     </div>
   );
 }
@@ -197,17 +187,11 @@ function Hero() {
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#contact"
+              href={CONTACT_MAILTO}
               className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-[#2f6bff] px-8 text-[15px] font-bold text-white shadow-lg shadow-[#2f6bff]/25 transition-colors hover:bg-[#1f55e0]"
             >
-              無料で資料をダウンロード
+              メールで問い合わせる
               <span aria-hidden>→</span>
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex h-14 items-center justify-center rounded-full border border-[#0b1b3f] bg-white px-8 text-[15px] font-bold text-[#0b1b3f] transition-colors hover:bg-[#0b1b3f] hover:text-white"
-            >
-              お問い合わせ
             </a>
           </div>
         </Reveal>
@@ -258,28 +242,6 @@ function HeroVisual() {
   );
 }
 
-function Clients() {
-  return (
-    <section className="border-y border-slate-100 bg-white py-10">
-      <p className="mb-6 text-center text-[12px] font-bold tracking-wider text-slate-400">
-        さまざまな業界の企業様にご利用いただいています（※ロゴはダミー）
-      </p>
-      <div className="relative overflow-hidden">
-        <div className="animate-marquee flex w-max gap-4">
-          {[...CLIENTS, ...CLIENTS].map((c, i) => (
-            <div
-              key={i}
-              className="flex h-14 w-44 shrink-0 items-center justify-center rounded-lg bg-slate-50 text-[13px] font-bold text-slate-400 ring-1 ring-slate-100"
-            >
-              {c}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function About() {
   return (
     <section id="about" className="scroll-mt-20 bg-white py-20 md:py-28">
@@ -298,12 +260,6 @@ function About() {
             リード獲得から商談・クロージング、そして受注後の顧客育成まで。
             営業プロセスのどこに課題があっても、最適な体制とノウハウで成果創出を支援します。
           </p>
-          <a
-            href="#services"
-            className="mt-8 inline-flex items-center gap-2 text-[14px] font-bold text-[#2f6bff] hover:underline"
-          >
-            ソリューションを見る <span aria-hidden>→</span>
-          </a>
         </Reveal>
       </div>
     </section>
@@ -461,81 +417,24 @@ function ContactCta() {
           <h2 className="relative mt-3 text-[24px] font-bold leading-snug md:text-[34px]">
             営業の課題、まずはお気軽にご相談ください。
           </h2>
-          <div className="relative mt-10 grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl bg-white/10 p-6 ring-1 ring-white/20">
-              <p className="text-[13px] text-white/70">お電話でのお問い合わせ</p>
-              <p className="mt-2 font-mono text-[28px] font-bold tracking-wide">{PHONE}</p>
-              <p className="mt-1 text-[12px] text-white/60">受付時間 平日 10:00〜18:00</p>
-            </div>
-            <div className="flex flex-col justify-center gap-3 rounded-2xl bg-white/10 p-6 ring-1 ring-white/20">
-              <a
-                href="#contact"
-                className="flex h-12 items-center justify-center rounded-full bg-white text-[14px] font-bold text-[#2f6bff] transition-opacity hover:opacity-90"
-              >
-                無料で資料をダウンロード
-              </a>
-              <a
-                href="#contact"
-                className="flex h-12 items-center justify-center rounded-full border border-white/60 text-[14px] font-bold text-white transition-colors hover:bg-white/10"
-              >
-                フォームでお問い合わせ
-              </a>
-            </div>
+          <p className="relative mx-auto mt-5 max-w-xl text-[14px] leading-[1.9] text-white/80">
+            ご相談・お見積りのご依頼は、下記メールアドレスまでお気軽にご連絡ください。
+          </p>
+          <div className="relative mx-auto mt-10 max-w-xl rounded-2xl bg-white/10 p-6 ring-1 ring-white/20 md:p-8">
+            <p className="text-[13px] text-white/70">メールでのお問い合わせ</p>
+            <p className="mt-2 break-all font-mono text-[18px] font-bold tracking-wide md:text-[22px]">
+              {CONTACT_EMAIL}
+            </p>
+            <a
+              href={CONTACT_MAILTO}
+              className="mt-6 flex h-12 items-center justify-center gap-2 rounded-full bg-white text-[14px] font-bold text-[#2f6bff] transition-opacity hover:opacity-90"
+            >
+              メールで問い合わせる
+              <span aria-hidden>→</span>
+            </a>
           </div>
         </div>
       </Reveal>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="bg-[#0b1b3f] text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.2fr_1fr_1fr] md:px-6">
-        <div>
-          <SalesLogo inverted />
-          <p className="mt-4 text-[13px] leading-[1.9] text-white/60">
-            BtoB特化の営業支援サービス
-            <br />
-            〒000-0000 東京都○○区○○ 0-0-0（ダミー）
-          </p>
-        </div>
-        <div>
-          <p className="mb-4 text-[12px] font-bold tracking-wider text-white/40">SERVICES</p>
-          <ul className="space-y-2.5">
-            {SERVICES.map((s) => (
-              <li key={s.title}>
-                <a href="#services" className="text-[13px] text-white/75 hover:text-white">
-                  {s.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <p className="mb-4 text-[12px] font-bold tracking-wider text-white/40">COMPANY</p>
-          <ul className="space-y-2.5 text-[13px] text-white/75">
-            <li>
-              <Link href="/" className="hover:text-white">
-                運営会社
-              </Link>
-            </li>
-            <li>
-              <a href="#faq" className="hover:text-white">
-                よくある質問
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-white">
-                お問い合わせ
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-white/10 py-6 text-center text-[11px] text-white/40">
-        © {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.
-      </div>
-    </footer>
   );
 }
