@@ -97,15 +97,15 @@ const CASES = [
 const FAQS = [
   {
     q: "最低契約期間はありますか？",
-    a: "原則として3ヶ月からのご契約をお願いしております。内容に応じて柔軟にご相談可能です。（※ダミーテキスト）",
+    a: "原則として3ヶ月からのご契約をお願いしております。内容に応じて柔軟にご相談可能です。",
   },
   {
     q: "依頼してからどのくらいで稼働できますか？",
-    a: "ヒアリングから体制構築まで、最短で数週間程度での稼働開始が可能です。（※ダミーテキスト）",
+    a: "ヒアリングから体制構築まで、最短で数週間程度での稼働開始が可能です。",
   },
   {
     q: "費用はどのように決まりますか？",
-    a: "支援範囲・稼働人数・期間などによって変動します。まずはお気軽にお問い合わせください。（※ダミーテキスト）",
+    a: "支援範囲・稼働人数・期間などによって変動します。まずはお気軽にお問い合わせください。",
   },
   {
     q: "どこまでの業務を依頼できますか？",
@@ -215,9 +215,6 @@ function HeroVisual() {
       <div className="rounded-3xl bg-white p-7 shadow-[0_30px_80px_-30px_rgba(11,27,63,0.35)] ring-1 ring-slate-200">
         <div className="mb-6 flex items-center justify-between">
           <p className="text-[13px] font-bold text-[#0b1b3f]">営業パイプライン</p>
-          <span className="rounded-full bg-[#eef3ff] px-3 py-1 text-[11px] font-bold text-[#2f6bff]">
-            イメージ
-          </span>
         </div>
         <div className="space-y-4">
           {rows.map((r) => (
@@ -336,7 +333,7 @@ function Cases() {
         <Reveal>
           <SectionHead
             en="Case Studies"
-            ja="上場企業からスタートアップまで、幅広く支援"
+            ja="業界・規模を問わず、幅広く支援"
             light
           />
         </Reveal>
@@ -368,7 +365,6 @@ function Cases() {
             </Reveal>
           ))}
         </div>
-        <p className="mt-6 text-[12px] text-white/50">※ 掲載事例はイメージです。</p>
       </div>
     </section>
   );
