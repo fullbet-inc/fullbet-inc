@@ -2,7 +2,6 @@
 export const BRAND_NAME = "Fullbet Sales";
 export const BRAND_NAME_JA = "フルベット・セールス";
 export const CONTACT_EMAIL = "y.yoshizawa@fullbet-inc.com";
-export const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("営業支援サービスについてのお問い合わせ")}`;
 
 export default function SalesLogo({ inverted = false }: { inverted?: boolean }) {
   return (
